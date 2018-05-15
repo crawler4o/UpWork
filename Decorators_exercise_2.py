@@ -3,7 +3,7 @@
 
 from functools import wraps
 
-def glupaci(deco_arg): # my deco function that reads the deco argument
+def glupaci(deco_arg): # my deco function that reads the deco argument. We can play without this if there are no deco arguments.
     def func_deco(undeco_func): # my decorator function that reads the function to be decorated
         @wraps(undeco_func) # this one keep the '__name__' and '__doc__' to be the ones of the originally called function. Otherwise they turn to the most internal decorators ones.
         def wrapper_f(*argv): # My wropping function that reads the arguments from the function that is to be decorated.
