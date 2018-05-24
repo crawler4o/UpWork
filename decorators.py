@@ -1,7 +1,8 @@
-'''This is the doc string of the decorators.py moduleself.
-And we use tripple quoting, because it allows the string to contain line breaks'''
+"""This is the doc string of the decorators.py module .
+And we use triple quoting, because it allows the string to contain line breaks"""
 
 from functools import wraps
+
 
 def first_decorator_txt(deco_txt):
     def first_decorator(func):
@@ -12,11 +13,11 @@ def first_decorator_txt(deco_txt):
     return first_decorator
 
 
-
 @first_decorator_txt('patka')
 def double_text(text_to_print):
-    '''This is the documentation string of the double_text function '''
+    """This is the documentation string of the double_text function """
     return text_to_print + text_to_print
+
 
 print(double_text('edno_'))
 print(double_text.__name__)
