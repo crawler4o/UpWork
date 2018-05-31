@@ -19,7 +19,7 @@ nis_exp = 'NISRV_07.05.2018.csv'
 def rnd_shot(ss, job_on): # This will paste the RND 
 	wb = load_workbook(filename = rnd_file_name) # opening the rnd
 	sswb = load_workbook(filename = ss) # opening the ss file
-	sheet = wb['Running cells'] #defining the rnd sheet to read
+	sheet: object = wb['Running cells'] #defining the rnd sheet to read
 	sheet_ss = sswb['Front Page'] # identifying the ss sheet to write on
 	d_row = 3 # ss row to write the rnd data on
 	for x in range(2, 3000):
