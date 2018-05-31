@@ -2,6 +2,7 @@
 
 import csv
 
+
 def mean(*args):
     """ returns average of variable number of arguments """
     if len(args) > 1:
@@ -11,12 +12,12 @@ def mean(*args):
 
 
 def mark_percentage(mark1, mark2):
-    ''' return percentage average of variable number of arguments '''
+    """ return percentage average of variable number of arguments """
     return mark1 + mark2 * 100 / 150
 
 
 def print_result(average, grade, mark1, mark2, name):
-    """ output grade result and pecentage """
+    """ output grade result and percentage """
 
     print(f"{name} Grade is {grade}, percentage: {(mark1+mark2)*100/150:.1f}%")
 
@@ -26,14 +27,14 @@ def check_result(average, mark1, mark2, name='Your'):
 
     a_result = False
     grade = ''
-    if (average > 68 ):  # A is 69 to 99
+    if average > 68:  # A is 69 to 99
         grade = 'A'
         a_result = True
-    elif (average > 59):  # B is 60 to 68
+    elif average > 59:  # B is 60 to 68
         grade = 'B'
-    elif (average > 49):  # C is 50 to 59
+    elif average > 49:  # C is 50 to 59
         grade = 'C'
-    elif (average > 44):  # D is 45 to 49
+    elif average > 44:  # D is 45 to 49
         grade = 'D'
     else:  # FAIL is 1 to 44
         grade = 'FAIL'
