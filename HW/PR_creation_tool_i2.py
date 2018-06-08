@@ -71,7 +71,9 @@ class Job:
 			
         for x in n_dict:
             dict[x] = n_dict[x]
-
+        
+		#  To add the feeder lengths. The successful regex so far for feeder length is re.search('(?<![1])\d{1,2,3}(?![/]', a).group(). Anyway, this would match the 1 in 1 5/8 )
+		
         return dict
 
 
@@ -116,7 +118,7 @@ if __name__ == '__main__':
         for x in job.existing:
             print('{}:{}'.format(x, job.existing[x]))
         
-        print(' \nThe installed HW is:')
+        print(' \nThe target HW is:')
         for x in job.target:
             print('{}:{}'.format(x, job.target[x]))
         print('')
