@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../Georgiev_Tech" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../Learning_Python" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../MicroPython" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../The_Django_Book" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../co_learning_Zurich" vcs="" />
+    <mapping directory="$PROJECT_DIR$/../py-co-learning" vcs="Git" />
+  </component>
+</project>

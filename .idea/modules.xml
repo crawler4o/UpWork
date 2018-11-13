@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Georgiev_Tech/.idea/Georgiev_Tech.iml" filepath="$PROJECT_DIR$/../Georgiev_Tech/.idea/Georgiev_Tech.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Learning_Python/.idea/Learning_Python.iml" filepath="$PROJECT_DIR$/../Learning_Python/.idea/Learning_Python.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../MicroPython/.idea/PyBoard.iml" filepath="$PROJECT_DIR$/../MicroPython/.idea/PyBoard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../The_Django_Book/.idea/The_Django_Book.iml" filepath="$PROJECT_DIR$/../The_Django_Book/.idea/The_Django_Book.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/UpWork.iml" filepath="$PROJECT_DIR$/.idea/UpWork.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../py-co-learning/.idea/py-co-learning.iml" filepath="$PROJECT_DIR$/../py-co-learning/.idea/py-co-learning.iml" />
+    </modules>
+  </component>
+</project>
