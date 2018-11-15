@@ -1,4 +1,6 @@
 from dataclasses import dataclass
+
+
 class Job:
     def __init__(self, *args):
         self.job_id = args[0]
@@ -30,7 +32,6 @@ print(a.__repr__)
 print(b)
 print(b.__eq__(a))
 print(b.__dict__)
-
 
 
 @dataclass
