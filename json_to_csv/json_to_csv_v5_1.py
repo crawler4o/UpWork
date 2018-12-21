@@ -22,7 +22,7 @@ def write2(parsed_list):
                         fieldnames.append(i)
                 n += 1
 
-        with open(f'{names_list[ent][:-5]}.csv', 'w', newline='', encoding='utf-8') as csvfile:
+        with open(f'{os.path.splitext(names_list[ent])[0]}.csv', 'w', newline='', encoding='utf-8') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
             z = 0
