@@ -1,0 +1,72 @@
+{
+    "LocalizedStrings": [
+        {
+            "ID": "textSize",
+            "value": "Size"
+        },
+        {
+            "ID": "leading",
+            "value": "Leading"
+        },
+        {
+            "ID": "tracking",
+            "value": "Tracking"
+        },
+        {
+            "ID": "colorFill",
+            "value": "Fill Color"
+        },
+        {
+            "ID": "colorStroke",
+            "value": "Stroke Color"
+        },
+        {
+            "ID": "strokeWeight",
+            "value": "Stroke Weight"
+        },
+        {
+            "ID": "scale",
+            "value": "Scale"
+        },
+        {
+            "ID": "opacity",
+            "value": "Opacity"
+        },
+        {
+            "ID": "artboardNavigation",
+            "value": "Change Artboard"
+        },
+        {
+            "ID": "changetoolvalue",
+            "value": "Contextual"
+        },
+        {
+            "ID": "undoRedo",
+            "value": "Undo/Redo"
+        },
+        {
+            "ID": "undoredo",
+            "value": "Undo/Redo"
+        },
+        {
+            "ID": "undo",
+            "value": "Undo"
+        },
+        {
+            "ID": "redo",
+            "value": "Redo"
+        },
+        {
+            "ID": "zoom",
+            "value": "Zoom"
+        },
+        {
+            "ID": "keystrokeassignment",
+            "value": "Keystroke assignment"
+        },
+        {
+            "ID": "playpause",
+            "value": "Play/Pause"
+        }
+    ]
+}
