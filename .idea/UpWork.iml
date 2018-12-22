@@ -2,9 +2,8 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="Python 3.7 (venv)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.7 (Upwork_api_json)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="PyBoard" />
     <orderEntry type="module" module-name="Georgiev_Tech" />
     <orderEntry type="module" module-name="Learning_Python" />
     <orderEntry type="module" module-name="The_Django_Book" />

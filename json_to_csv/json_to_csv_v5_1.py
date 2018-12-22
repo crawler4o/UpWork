@@ -60,11 +60,7 @@ def flatten3(x, name='', shifted=False):
                     out.insert(0, {name + a: x[a]})
                     shifted = True
                 else:
-                    try:
-                        out[0][name + a] = x[a]
-                    except:
-                        print('a_________________________________________________________________')
-                        # out.insert(0, {name + a: x[a]})
+                    out[0][name + a] = x[a]
 
             else:
                 if len(out) > 0:
@@ -82,9 +78,6 @@ def flatten3(x, name='', shifted=False):
                 flatten3(a, name)
 
             looped = True
-
-    #print(out)
-
 
     return out
 
