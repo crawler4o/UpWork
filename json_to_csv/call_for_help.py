@@ -12,8 +12,8 @@ def data_multiplication(initial_nested_data):
             base_dic = out[-1]
             print('match')
             print(base_dic)
-            for x, _ in enumerate(nested_data):
-                data_multiplication_(nested_data[x])
+            for x in nested_data:
+                data_multiplication_(x)
                 print(base_dic)
                 out.append(base_dic)
 
