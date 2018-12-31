@@ -18,19 +18,22 @@ def write(flat_df):
 def data_multiplication(initial_nested_data):
     out = [{}]
 
-    def data_multiplication_(nested_data):
+    def data_multiplication_(nested_data, parent_key=''):
         if isinstance(nested_data, list) and len(nested_data) > 0:
             base_dic = out[-1]
             for x in nested_data:
                 out.append({**base_dic})
-                data_multiplication_(x)
+                data_multiplication_(x, parent_key)
 
         elif isinstance(nested_data, dict) or len(nested_data) == 0:
             for key, value in nested_data.items():
                 if (isinstance(value, list) or isinstance(value, dict)) and len(value) > 0:
-                    data_multiplication_(value)
+                    data_multiplication_(value, key)
                 else:
-                    out[-1][key] = value
+                    if parent_key:
+                        out[-1][f'{parent_key}_{key}'] = value
+                    else:
+                        out[-1][key] = value
 
     data_multiplication_(initial_nested_data)
 
