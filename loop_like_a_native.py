@@ -7,6 +7,7 @@ import re
 import os
 import lorem
 import itertools as itt
+from timeit import timeit
 
 
 def pattern_gen():
@@ -39,6 +40,9 @@ def cool_zip():
     for building, height in zip(names, heights):
         print(f'The building is: {building} and it is {height}m high')
 
+    print('_________________')
+    print(dict(zip(names, heights)))
+
 
 def list_en_ex():
     my_list = ['asd', 'qwe', 'erty']
@@ -64,14 +68,116 @@ def own_con():
     nums = [11, 12, 23, 34, 34, 564, 65, 765, 876]
 
     def evens(stream):
-        them = []
         for x in stream:
             if x % 2 == 0:
-                them.append(x)
-        return them
+                yield x
 
     for n in evens(nums):
         print(n)
+
+
+def simple_gen():
+    def simple_gen_in():
+        yield 'Hello'
+        yield 'World'
+
+    for x in simple_gen_in():
+        print(x)
+
+
+def range_scan_2d():
+    """This one is just an example - it won't run :-)"""
+    def range_2d(width, height):
+        """Produces a stream of 2d coordinates."""
+        for y in range(height):
+            for x in range(width):
+                yield x, y
+
+    for col, row in range_2d(10,15):
+        value = spreadsheet.get_value(col,row)
+        do_something(value)
+
+        if this_is_my_value(value):
+            break
+
+def get_cell():
+    """ The better way to get a cell. This also won't run."""
+    for cell in spreadsheet.cells():
+        value = cell.get_value()
+        do_something(value)
+
+        if this_is_my_value(value):
+            break
+
+
+
+def some_file_things():
+    """ Cool example for abstraction"""
+
+    def interesting_lines(f):
+        for line in f:
+            line = line.strip()
+            if line.startswith('#'):
+                continue
+            if not line:
+                continue
+            yield line
+
+    with open('my_file.ini') as f:
+        for line in interesting_lines(f):
+            do_something(line)
+
+
+def iterable_and_iterator_diff():
+    iterable = 'asdfgh'
+    iterator = iter(iterable)
+    value = next(iterator)
+    print(value)
+    value = next(iterator)
+    print(value)
+
+
+def helpful_open_file():
+    with open('asd.dat') as f:
+        # Read the first line
+        try:
+            header_line = next(f)
+        except StopIteration:
+            print('The file is empty. Stop iteration error risen on line 146')
+
+        # Read the rest
+        for data in f:
+            do_something()
+
+
+def own_iterable():
+    class ToDoList(object):
+        def __init__(self):
+            self.tasks = []
+
+        #  def __iter__(self):
+        #      return iter(self.tasks)
+
+        def __iter__(self):  # or even better to be a generator
+            for task in self.tasts:
+                if not task.done:
+                    yield task
+
+        def all(self):
+            return iter(self.tasks)
+
+        def done(self):
+            """
+            A generator expression.
+            Again returns a generator, just the oposite of the one in __iter__.
+            """
+            return (t for t in self.tasks if t.done)
+
+    todo = ToDoList()
+    # ...
+    for task in todo:
+        print('a')
+        # ...
 
 
 if __name__ == '__main__':
@@ -83,4 +189,7 @@ if __name__ == '__main__':
     #  list_en_ex()
     #  cool_zip()
     #  dict_cool()
-    own_con()
+    #  own_con()
+    #  print(timeit('own_con()', setup='from __main__ import own_con', number=50))
+    #  simple_gen()
+    iterable_and_iterator_diff()
