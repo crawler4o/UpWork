@@ -12,7 +12,7 @@ def parse():
 
 
 def write(flat_df):
-    flat_df.to_csv('output.csv', sep=',', encoding='utf-8')
+    flat_df.to_csv('output.csv', sep=',', encoding='utf-8', index=False)
 
 
 def data_multiplication(initial_nested_data):
@@ -21,14 +21,23 @@ def data_multiplication(initial_nested_data):
     def data_multiplication_(nested_data, parent_key=''):
         if isinstance(nested_data, list) and len(nested_data) > 0:
             base_dic = out[-1]
-            for x in nested_data:
-                out.append({**base_dic})
-                data_multiplication_(x, parent_key)
+            out.pop()
+            for i, v in enumerate(nested_data):
+                if isinstance(v, list) or isinstance(v, dict):
+                    out.append({**base_dic})
+                    data_multiplication_(v, parent_key)
+                else:
+                    if i == 0:
+                        out.append({**base_dic})
+                    out[-1][f'{parent_key}_{i}'] = v
 
         elif isinstance(nested_data, dict) or len(nested_data) == 0:
             for key, value in nested_data.items():
                 if (isinstance(value, list) or isinstance(value, dict)) and len(value) > 0:
-                    data_multiplication_(value, key)
+                    if parent_key:
+                        data_multiplication_(value, f'{parent_key}_{key}')
+                    else:
+                        data_multiplication_(value, key)
                 else:
                     if parent_key:
                         out[-1][f'{parent_key}_{key}'] = value
