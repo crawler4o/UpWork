@@ -23,7 +23,7 @@ def data_multiplication(initial_nested_data):
             base_dic = out[-1]
             out.pop()
             for i, v in enumerate(nested_data):
-                if isinstance(v, list) or isinstance(v, dict):
+                if isinstance(v, (list, dict)):
                     out.append({**base_dic})
                     data_multiplication_(v, parent_key)
                 else:
@@ -33,7 +33,7 @@ def data_multiplication(initial_nested_data):
 
         elif isinstance(nested_data, dict) or len(nested_data) == 0:
             for key, value in nested_data.items():
-                if (isinstance(value, list) or isinstance(value, dict)) and len(value) > 0:
+                if isinstance(value, (list, dict)) and len(value) > 0:
                     if parent_key:
                         data_multiplication_(value, f'{parent_key}_{key}')
                     else:
