@@ -1,0 +1,21 @@
+Python DB course: ( python for everybody )
+
+https://www.py4e.com/book
+http://www.py4e.com/materials
+
+db browser for SQLite
+
+______________________________________________________________________________________________
+
+CREATE TABLE Users(
+	name VARCHAR(128),
+	email VARCHAR(128)
+)
+
+INSERT INTO Users(name, email) VALUES('Bogdanka', 'bogdanka@asd.com')
+DELETE FROM Users WHERE email='bogdanka@asd.com'
+UPDATE Users SET name='Ivan' WHERE email='ivancho@as.as'
+SELECT * FROM Users WHERE name='Fred'  ( * means all attributes [columns]. Can put the col name instead)
+SELECT * FROM Users
+SELECT name,email FROM Users ORDER BY email
+
