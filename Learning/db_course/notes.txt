@@ -6,4 +6,8 @@ http://www.py4e.com/materials
 db browser for SQLite
 
 ______________________________________________________________________________________________
+take a look at :
 
+indexes ( logical keys and lookups )
+transactions ( group operations )
+constrains
