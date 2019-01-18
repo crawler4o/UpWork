@@ -10,7 +10,7 @@ def generate(num_of_codes):
 
 
 def add_to_db(codes):
-    conn = sqlite3.connect('chio_codes_test.sqlite')
+    conn = sqlite3.connect('chio_codes.sqlite')
     cur = conn.cursor()
     time_now = time.strftime('%Y-%m-%d %H:%M:%S')
 
@@ -50,5 +50,5 @@ def add_to_db(codes):
 
 
 if __name__ == '__main__':
-    codes_iter = generate(1000)
+    codes_iter = generate(5000000)
     add_to_db(codes_iter)

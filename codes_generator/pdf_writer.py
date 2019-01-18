@@ -37,18 +37,18 @@ def write_codes(codes_it, name):
                 y_ofs += 1
             else:  # if the page is full
                 y_ofs = 0
-                pdf.add_page()
-                pdf.ln(41)  # header
-                pdf.cell(20)  # margin
+                if pdf.page_no() < 1042:  # not to have an empty page in the end
+                    pdf.add_page()
+                    pdf.ln(41)  # header
+                    pdf.cell(20)  # margin
 
             x_ofs = 0
-
     pdf.output(name, 'F')
 
 
 def query_codes(amount, file_name):
 
-    conn = sqlite3.connect('chio_codes_test.sqlite')
+    conn = sqlite3.connect('chio_codes.sqlite')
     cur = conn.cursor()
     time_now = time.strftime('%Y-%m-%d %H:%M:%S')
 
@@ -67,6 +67,7 @@ def query_codes(amount, file_name):
 
 
 if __name__ == '__main__':
-    out_file = 'Chio_Codes_{}.pdf'.format(time.strftime('%Y_%m_%d_%H_%M_%S'))
-    codes = query_codes(200, out_file)
-    write_codes(codes, out_file)
+    for _ in range(102):
+        out_file = 'Chio_Codes_{}.pdf'.format(time.strftime('%Y_%m_%d_%H_%M_%S'))
+        codes = query_codes(50016, out_file)  # 50016 codes per file, 1042 pages
+        write_codes(codes, out_file)
