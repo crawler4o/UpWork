@@ -14,28 +14,25 @@ def add_to_db(codes):
     cur = conn.cursor()
     time_now = time.strftime('%Y-%m-%d %H:%M:%S')
 
-    try:
-        cur.executescript('''
-            CREATE TABLE Codes (
-                id     INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
-                code   TEXT UNIQUE,
-                generation_id INTEGER,
-                usage_id INTEGER
-            );
-            
-            CREATE TABLE Generation (
-                id     INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
-                datetime TEXT UNIQUE
-            );
-            
-            CREATE TABLE Usage (
-                id     INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
-                datetime TEXT,
-                pdf_file_name TEXT
-            )    
-            ''')
-    except:
-        pass
+    cur.executescript('''
+        CREATE TABLE IF NOT EXISTS Codes (
+            id     INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+            code   TEXT UNIQUE,
+            generation_id INTEGER,
+            usage_id INTEGER
+        );
+        
+        CREATE TABLE IF NOT EXISTS Generation (
+            id     INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+            datetime TEXT UNIQUE
+        );
+        
+        CREATE TABLE IF NOT EXISTS Usage (
+            id     INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+            datetime TEXT,
+            pdf_file_name TEXT
+        )    
+        ''')
 
     cur.execute('''INSERT OR IGNORE INTO Generation (datetime)
         VALUES (?)''', (time_now, ))
