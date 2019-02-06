@@ -53,7 +53,7 @@ def query_codes(amount, file_name):
     time_now = time.strftime('%Y-%m-%d %H:%M:%S')
 
     cur.execute('''INSERT OR IGNORE INTO Usage (datetime, pdf_file_name)
-        VALUES (?, ?)''', (time_now, file_name))
+                   VALUES (?, ?)''', (time_now, file_name))
     cur.execute('SELECT id FROM Usage WHERE datetime = ? ', (time_now, ))
     usage_id = cur.fetchone()[0]
 
@@ -66,8 +66,20 @@ def query_codes(amount, file_name):
     return (code[0] for code in codes_it)
 
 
+def ren_file(file_name):
+
+    conn = sqlite3.connect('chio_codes.sqlite')
+    cur = conn.cursor()
+    cur.execute('SELECT id FROM Usage WHERE pdf_file_name = ? ', (file_name, ))
+    file_id = cur.fetchone()[0]
+    updated_file_name = f'{file_id}_{file_name}'
+
+    return updated_file_name
+
+
 if __name__ == '__main__':
-    for _ in range(102):
-        out_file = 'Chio_Codes_{}.pdf'.format(time.strftime('%Y_%m_%d_%H_%M_%S'))
+    for _ in range(106):
+        out_file = 'Chio_Codes_{}.pdf'.format(time.strftime('%Y_%m_%d_%H_%M_%S'))  # adds to db the name without index
         codes = query_codes(50016, out_file)  # 50016 codes per file, 1042 pages
-        write_codes(codes, out_file)
+        out_file_with_index = ren_file(out_file)
+        write_codes(codes, out_file_with_index)
