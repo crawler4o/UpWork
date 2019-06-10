@@ -7,13 +7,21 @@ read line
 if [[ $str == *"$line"* ]]; then 
 	echo The letter is in the string
 else  
-	echo 'the letter is not on the string'
+	echo 'The letter is not on the string'
 	exit
 fi
 
-declare -a -g arr
-echo $str | fold -w1 | while read line; do
-	#echo $line
-	arr=("${arr[@]}" "${line}")
-	echo ${arr[@]}	
-done
+
+arr=$(echo $str | fold -w1)
+echo $arr
+pos=0
+tim=0
+for i in $arr;do
+    if [ $i == $line ]; then
+        echo We have $line on position $pos
+        ((tim++))
+        fi
+
+    ((pos++))
+    done
+echo We have $line $tim times
