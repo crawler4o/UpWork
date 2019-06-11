@@ -1,0 +1,19 @@
+"""
+Ask user an alphabet to search within a string. Your string is “hey do you love bashing, i meant scripting”.
+You need to tell at which position it was found (all positions), How many times it appeared in the string,
+It must say only once, if not found (Bonus=3 marks)
+"""
+
+test_str = "hey do you love bashing, i meant scripting"
+
+req_char = input('Please enter the symbol you would like to test').lower()
+
+if req_char in test_str:
+    print(f'Yes, {req_char} is there.')
+else:
+    print(f'No, the requested char is not on the string')
+    quit()
+
+for i, v in enumerate(test_str):
+    if req_char == v:
+        print(f'There is {req_char} in position {i}')
